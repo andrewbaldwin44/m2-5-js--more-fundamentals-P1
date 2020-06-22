@@ -20,13 +20,35 @@ const reverseString = (str) => {
 
 // Expand each of the following and get the result of the expression
 // 1-1
-square(decrement(square(decrement(3))));
+console.log(square(decrement(square(decrement(3)))));
+/*
+First decrement is called and will return 2,
+Then suqare is called, returning 4,
+Decrement is called again, returning 3,
+Finally square is called, returning 9
+*/
 
 // 1-2
-decrement(decrement(square(square(3))));
+console.log(decrement(decrement(square(square(3)))));
+/*
+First square is called, returning 9,
+then sqaure is called again, returning 81,
+Decremenet is called, returning 80,
+Finally decrement is called again, returning 79
+*/
 
 // 1-3
-duplicateString(reverseString('hello'));
+console.log(duplicateString(reverseString('hello')));
+/*
+First reverseString is called, returning olleh,
+Then duplicatedString is called, returning olleholleh
+*/
+
 
 // 1-4
-reverseString(duplicateString(duplicateString('foo')));
+console.log(reverseString(duplicateString(duplicateString('foo'))));
+/*
+First duplicateString is called, returning foofoo
+Then duplicateString is called again, returning foofoofoofoo,
+Finally reverseString is called, returning oofoofoofoof
+*/
