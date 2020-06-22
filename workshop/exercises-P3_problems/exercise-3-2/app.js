@@ -1,10 +1,44 @@
-// Exercise 3-2
-// ------------
+const buttons = document.querySelector('.buttons');
+const defaultColor = 'gold';
 
-// NO MODIFICATIONS OUTSIDE OF THE EXERCISE FOLDER (i.e. the css is read-only)
+function applyDefaults() {
+  [...buttons.children].forEach(listItem => {
+    button = listItem.firstChild;
+    button.style.opacity = 100;
+    button.style.backgroundColor = defaultColor;
+  });
+}
 
-// Hint:
-// create a toggleColor function
-// Because we are now going to work with the opacity and background of the buttons,
-// they need to be set here. So that they are referenceable via the the style attribute.
-// initialize the background color for all of the buttons in here. (for loop)
+function toggleVisibility(element) {
+  element.style.opacity =
+    element.style.opacity === '100' ? 0 : 100 ;
+}
+
+function toggleColor(element, color) {
+  element.style.backgroundColor =
+    element.style.backgroundColor === color ? defaultColor : color;
+}
+
+function toggleShake(element) {
+  element.classList.toggle('jitters');
+}
+
+window.onload = applyDefaults;
+
+window.addEventListener('click', e => {
+  switch (e.target.id) {
+    case 'btn-1':
+      toggleVisibility(e.target);
+      break;
+    case 'btn-2':
+      toggleColor(e.target, 'crimson');
+      break;
+
+    case 'btn-3':
+      toggleColor(e.target, 'lightblue');
+      break;
+    case 'btn-4':
+      toggleShake(e.target);
+      break;
+  }
+});

@@ -1,8 +1,29 @@
-// Exercise 3-1
-// ------------
+function disappears(element) {
+  element.style.opacity = 0;
+}
 
-// NO MODIFICATIONS OUTSIDE OF THE EXERCISE FOLDER (i.e. the css is read-only)
+function color(element, color) {
+  element.style.backgroundColor = color;
+}
 
-// Guidelines
-// - write only one event listener
-// - use a switch statement
+function shake(element) {
+  element.classList.add('jitters');
+}
+
+window.addEventListener('click', e => {
+  switch (e.target.id) {
+    case 'btn-1':
+      disappears(e.target);
+      break;
+    case 'btn-2':
+      color(e.target, 'crimson');
+      break;
+
+    case 'btn-3':
+      color(e.target, 'lightblue');
+      break;
+    case 'btn-4':
+      shake(e.target);
+      break;
+  }
+});
