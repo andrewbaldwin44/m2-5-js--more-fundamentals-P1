@@ -1,5 +1,5 @@
-// Exercise 2-2
-// ------------
+// Problem 2
+// ---------
 
 // Step 1
 // Write a function that returns the LAST character of the string that is
@@ -8,7 +8,7 @@
 // - If it's a number, return `undefined`
 
 function lastCharacter(str) {
-  // Your code here
+  return str != '' ? str.slice(-1) : undefined;
 }
 
 // Step 2
@@ -16,6 +16,11 @@ function lastCharacter(str) {
 // conditions specified above (don't forget empty string and number!!)
 
 expect(lastCharacter('max'), 'x');
+expect(lastCharacter('min'), 'n');
+expect(lastCharacter('avocado'), 'o');
+expect(lastCharacter('Zebra'), 'a');
+expect(lastCharacter('lion'), 'n');
+expect(lastCharacter(''), undefined);
 
 // Add 4 more test cases here!
 // 🌠 NOTE 🌠

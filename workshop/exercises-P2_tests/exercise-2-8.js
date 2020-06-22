@@ -1,6 +1,5 @@
-// Exercise 2-8
-// ------------
-
+// Problem 8
+// ---------
 // Write a function that returns the input string, reversed.
 // For example "hello" would return "olleh" and "how are you" would return "uoy era woh".
 //
@@ -15,10 +14,17 @@
 //  - Convert the filled array into a string (use the join method) and return it
 
 function reverse(str) {
-  // Your code here
+  return (str === '')
+    ? ''
+    : reverse(str.substr(1)) + str.charAt(0);
 }
 
 // We need 5 test cases
+expect(reverse('hello'), 'olleh');
+expect(reverse('racecar'), 'racecar');
+expect(reverse('50'), '05');
+expect(reverse(''), '');
+expect(reverse('never odd or even'), 'neve ro ddo reven');
 
 /**
  * -------------------------------------------------------------------

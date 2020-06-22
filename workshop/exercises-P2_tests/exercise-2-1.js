@@ -1,13 +1,12 @@
-// Exercise 2-1
-// ------------
-
+// Problem 1
+// ---------
 // Step 1
 // Write a function that returns the first character of the string that is
 // passed to it.
 // If it's an empty string (''), return undefined.
 
 function firstLetter(str) {
-  // Your code here
+  return str != '' ? str[0] : undefined;
 }
 
 // Step 2

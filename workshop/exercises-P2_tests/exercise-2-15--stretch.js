@@ -1,6 +1,5 @@
-// Exercise 2-15
-// -------------
-
+// Problem 12
+// ----------
 // Make this function return the number of elements that are unique to array1
 // and array2.
 // An element is unique if it only appears in one of the arrays.
@@ -25,11 +24,36 @@
 // If you struggle with it, set it aside. In a few weeks, you might find the
 // solution comes more quickly :)
 
-function uniqueElements(input) {
-  // Your code here
+function getUniqueFrom(array1, array2) {
+  let uniqueItems = [];
+
+  array1.forEach(item => {
+    if (!array2.includes(item)) uniqueItems.push(item)
+  });
+
+  return uniqueItems;
+}
+
+function uniqueElements(array1, array2) {
+  if (!Array.isArray(array1) || !Array.isArray(array2)) {
+    return undefined;
+  }
+
+  let uniqueArray1 = Array.from(new Set(array1));
+  let uniqueArray2 = Array.from(new Set(array2));
+
+  let uniqueElements1 = getUniqueFrom(array1, array2);
+  let uniqueElements2 = getUniqueFrom(array2, array1);
+
+  return uniqueElements1.concat(uniqueElements2);
 }
 
 // Add 5 test cases
+expect(uniqueElements([0, 1, 2, 3], [1, 3, 4, 5]), [0, 2, 4, 5]);
+expect(uniqueElements([1, 2, 3], [3, 2, 1]), []);
+expect(uniqueElements([3, 3, 3], [4, 4, 4]), [3, 3, 3, 4, 4, 4]);
+expect(uniqueElements(['hello', 'hi', 1, 2], [{somekey: 'somevalue'}, 1, 2]), ['hello', 'hi', {somekey: 'somevalue'}]);
+expect(uniqueElements('hello', [4, 4, 4]), undefined);
 
 /**
  * -------------------------------------------------------------------
@@ -37,7 +61,7 @@ function uniqueElements(input) {
  * -------------------------------------------------------------------
  */
 function expect(result, value) {
-  if (result === value) {
+  if (result && result.every((item, index) => item == value[index])) {
     console.log('✅ Test succeeded');
   } else {
     console.log(`⛔️ Expected “${result}” to equal “${value}”`);
